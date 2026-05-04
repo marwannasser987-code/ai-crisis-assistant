@@ -290,7 +290,8 @@ Available Support:
 
         # AUDIO
         lang_code = "ar" if language == "العربية" else "en"
-        tts = gTTS(audio_response, lang=lang_code)
+        clean_audio = clean_text_for_audio(audio_response)
+        tts = gTTS(clean_audio, lang=lang_code)
         temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=".mp3")
         tts.save(temp_file.name)
 
