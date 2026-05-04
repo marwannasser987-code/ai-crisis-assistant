@@ -3,6 +3,12 @@ from gtts import gTTS
 import tempfile
 import os
 
+def clean_text_for_audio(text):
+    import re
+    # Remove emojis and symbols
+    text = re.sub(r'[^\w\s\u0600-\u06FF.,:!?-]', '', text)
+    return text
+
 # ---------------------------------------------------
 # PAGE CONFIG
 # ---------------------------------------------------
